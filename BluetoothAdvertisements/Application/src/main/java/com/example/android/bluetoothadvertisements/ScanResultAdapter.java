@@ -72,6 +72,7 @@ public class ScanResultAdapter extends BaseAdapter {
         TextView deviceNameView = (TextView) view.findViewById(R.id.device_name);
         TextView deviceAddressView = (TextView) view.findViewById(R.id.device_address);
         TextView lastSeenView = (TextView) view.findViewById(R.id.last_seen);
+        TextView stateView = (TextView) view.findViewById(R.id.state);
 
         ScanResult scanResult = mArrayList.get(position);
 
@@ -82,6 +83,7 @@ public class ScanResultAdapter extends BaseAdapter {
         deviceNameView.setText(name);
         deviceAddressView.setText(scanResult.getDevice().getAddress());
         lastSeenView.setText(getTimeSinceString(mContext, scanResult.getTimestampNanos()));
+        stateView.setText("Power Standby");
 
         return view;
     }

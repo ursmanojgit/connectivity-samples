@@ -49,7 +49,7 @@ public class ScannerFragment extends ListFragment {
     /**
      * Stops scanning after 5 seconds.
      */
-    private static final long SCAN_PERIOD = 5000;
+    private static final long SCAN_PERIOD = 25000;
 
     private BluetoothAdapter mBluetoothAdapter;
 
@@ -109,7 +109,7 @@ public class ScannerFragment extends ListFragment {
         setEmptyText(getString(R.string.empty_list));
 
         // Trigger refresh on app's 1st load
-        startScanning();
+        //startScanning();
 
     }
 
@@ -137,6 +137,7 @@ public class ScannerFragment extends ListFragment {
     public void startScanning() {
         if (mScanCallback == null) {
             Log.d(TAG, "Starting Scanning");
+            //mBluetoothLeScanner.stopScan();
 
             // Will stop the scanning after a set time.
             mHandler.postDelayed(new Runnable() {
@@ -181,7 +182,7 @@ public class ScannerFragment extends ListFragment {
 
         ScanFilter.Builder builder = new ScanFilter.Builder();
         // Comment out the below line to see all BLE devices around you
-        builder.setServiceUuid(Constants.Service_UUID);
+        //builder.setServiceUuid(Constants.Service_UUID);
         scanFilters.add(builder.build());
 
         return scanFilters;
